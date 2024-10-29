@@ -22,37 +22,36 @@ def favorite_animal(users_animal):
 
 @app.route('/dessert/<users_dessert>')
 def favorite_dessert(users_dessert):
-    return f"<h2>How did you know I liked <users_dessert>?</h2>"
+    return f"<h2>How did you know I liked {users_dessert}?</h2>"
 
 @app.route('/madlibs/<adjective>/<noun>')
 def madlibs(adjective, noun):
     return f"{noun} is a {adjective} word!"
 
-@app.route('multiply/<number1>/<number2>')
+@app.route('/multiply/<number1>/<number2>')
 def multiply(number1, number2):
-    result = int(number1) * int(number2)
-    return f"{number1} times {number2} is {result}"
+    try:
+        result = int(number1) * int(number2)
+        return f"{number1} times {number2} is {result}"
+    except ValueError:
+        return "Invalid inputs. Please try again by entering 2 numbers!"
 
-# creating a <form>!
-formData = f"""
-<form action="/pizzaSubmit" method="GET">
-    What is your favorite pizza flavor?
-    <input type='text' name='pizza_flavor'>
-    What is your favorite crust type?
-    <input type='text' name='crust_type'>
-    <input type='submit' value="submit pizza!">
-</form>
-"""
-
-@app.route('/pizzaForm')
-def pizzaForm():
-    return formData
-
-@app.route('/pizzaSubmit', methods=['GET'])
-def pizzaSubmit():
-    flavor = request.args.get("pizza_flavor")
-    crust_type = request.args.get("crust_type")
-    return f"<h3>A {crust_type} crust {flavor} pizza has been ordered!</h3>"
+@app.route('/sayntimes/<word>/<n>')
+def sayntimes(word, n):
+    try:
+        n = int(n)
+        return word * n
+    except ValueError:
+        return "Invalid input. Please try again by entering a word and a number!"
+    
+@app.route('/dicegame')
+def dicegame():
+    import random
+    dice_roll = random.randint(1, 6)
+    if dice_roll == 6:
+        return "You rolled a 6. You won!"
+    else:
+        return f"You rolled a {dice_roll}. You lost!"
 
 # the server can be accessed in your web browser using the URL localhost:3000/
 if __name__ == '__main__':
