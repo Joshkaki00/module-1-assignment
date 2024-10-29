@@ -12,7 +12,8 @@ app = Flask(__name__)
 # be defined directly beneath the route declaration
 @app.route('/')
 def homepage():
-    return "Hello, world!"
+    """Shows a greeting to the user."""
+    return 'Are you there, world? It\'s me, Ducky!'
 
 @app.route('/route1')
 def route1Info():
@@ -49,7 +50,7 @@ def pizzaSubmit():
 
 # the server can be accessed in your web browser using the URL localhost:3000/
 if __name__ == '__main__':
-    app.run(debug=True, port=3000)
+    app.run(debug=True)
 
 # TODO: Follow the assignment instructions to complete the required routes!
 # (And make sure to delete this TODO message when you're done!)
