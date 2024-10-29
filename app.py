@@ -50,3 +50,6 @@ def pizzaSubmit():
 # the server can be accessed in your web browser using the URL localhost:3000/
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
+
+# TODO: Follow the assignment instructions to complete the required routes!
+# (And make sure to delete this TODO message when you're done!)
