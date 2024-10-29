@@ -40,7 +40,7 @@ def multiply(number1, number2):
 def sayntimes(word, n):
     try:
         n = int(n)
-        return word * n
+        return ' '.join([word] * n)
     except ValueError:
         return "Invalid input. Please try again by entering a word and a number!"
     
