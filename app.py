@@ -20,13 +20,18 @@ def favorite_animal(users_animal):
     """Display a message to the user that changes based on their favorite animal."""
     return f'Wow, {users_animal} is my favorite animal, too!'
 
-@app.route('/profile/<user_name>')
-def profile(user_name):
-    return f"<h2>Hello, {user_name}!</h2>"
+@app.route('/dessert/<users_dessert>')
+def favorite_dessert(users_dessert):
+    return f"<h2>How did you know I liked <users_dessert>?</h2>"
 
-@app.route('/date/<month>/<day>/<year>')
-def displayDate(month, day, year):
-    return f"{month} / {day} / {year}"
+@app.route('/madlibs/<adjective>/<noun>')
+def madlibs(adjective, noun):
+    return f"{noun} is a {adjective} word!"
+
+@app.route('multiply/<number1>/<number2>')
+def multiply(number1, number2):
+    result = int(number1) * int(number2)
+    return f"{number1} times {number2} is {result}"
 
 # creating a <form>!
 formData = f"""
